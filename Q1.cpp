@@ -29,10 +29,13 @@ class rectangle{
 
 int main(){
 
-    int length;
+    int length,breadth;
+    cout<<"Enter length and breadth : ";
+    cin>>length>>breadth;
+
     rectangle val1, val2;
-    val1 = rectangle (10,10);
-    val2 = rectangle (10);
+    val1 = rectangle (length,breadth);
+    val2 = rectangle (length);
 
     val1.area();
     val2.area();
