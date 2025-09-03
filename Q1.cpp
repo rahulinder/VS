@@ -28,6 +28,8 @@ class rectangle{
 };
 
 int main(){
+
+    int length;
     rectangle val1, val2;
     val1 = rectangle (10,10);
     val2 = rectangle (10);
