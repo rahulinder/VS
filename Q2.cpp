@@ -43,7 +43,7 @@ int main(){
         val[i] = rectangle(5);
         val[i].area();
         
-        val[i];
+        val[i] = rectangle();
     }
 
     return 0;
