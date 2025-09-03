@@ -42,7 +42,6 @@ int main(){
     // cin>>length>>breadth;
 
     rectangle val[3];
-    cin.ignore();
     for(int i=0;i<1;i++){
         val[i] = rectangle(2,10);        
           
