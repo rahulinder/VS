@@ -1,0 +1,5 @@
+
+bank() called
+
+Principle amount of 100000 over the period of 3 Years with 0.05 has become 115000
+Principle amount of 100000 over the period of 3 Years with 5 has become 115000
