@@ -7,7 +7,10 @@ class rectangle{
 
     public:
 
-    rectangle(){}
+    rectangle(){
+        length=0;
+        breadth = 0;
+    }
     
     rectangle(int l , int b){
         length = l;
