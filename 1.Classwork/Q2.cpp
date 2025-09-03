@@ -2,15 +2,13 @@
 using namespace std;
 
 class rectangle{
-    int length;
-    int breadth;
+    int length=0;
+    int breadth=0;
 
     public:
 
     rectangle(){
-        length=0;
-        breadth = 0;
-
+        cout<<"Constructor Called : ";
         int area;
         area = length*breadth;
         cout<<area<<endl;
@@ -19,7 +17,7 @@ class rectangle{
     rectangle(int l , int b){
         length = l;
         breadth = b;
-
+        cout<<"Constructor Called : ";
         int area;
         area = length*breadth;
         cout<<area<<endl;
@@ -28,10 +26,17 @@ class rectangle{
     rectangle(int l){
         length = l;
         breadth = l;
-
+        cout<<"Constructor Called : ";
         int area;
         area = length*breadth;
         cout<<area<<endl;
+    }
+
+    ~rectangle(){
+        cout<<endl;
+        cout<<"----------Destructor called----------"<<endl;
+        cout<<length<<"  "<<breadth<<endl;
+        cout<<endl;
     }
 };
 
@@ -44,11 +49,8 @@ int main(){
     rectangle val[3];
     for(int i=0;i<1;i++){
         val[i] = rectangle(2,10);        
-          
-        val[i] = rectangle(5);
-                
+        val[i] = rectangle(5);                
         val[i] = rectangle();
-
     }
 
     return 0;

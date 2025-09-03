@@ -2,16 +2,12 @@
 using namespace std;
 
 class rectangle{
-    int length;
-    int breadth;
+    int length=0;
+    int breadth=0;
 
     public:
-
-    rectangle(){
-        length=0;
-        breadth = 0;
-    }
-    
+    rectangle(){}
+   
     rectangle(int l , int b){
         length = l;
         breadth = b;
@@ -38,7 +34,7 @@ int main(){
 
     rectangle val1(5,10), val2(5), val3;//implicit call
 
-    // val1 = rectangle (5,10);//exlicit call
+    // val1 = rectangle (5,10);//explicit call
     // val2 = rectangle (length);
 
     val1.area();
