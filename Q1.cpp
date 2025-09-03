@@ -20,7 +20,7 @@ class rectangle{
     }
     
     int area(){
-        float area;
+        int area;
         area = length*breadth;
 
         cout<<area<<endl;
