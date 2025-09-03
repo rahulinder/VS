@@ -40,8 +40,10 @@ int main(){
     for(int i=0;i<2;i++){
         val[i] = rectangle(2,10);        
         val[i].area();        
+        
         val[i] = rectangle(5);
         val[i].area();
+        
         val[i];
         val[i].area();
     }
