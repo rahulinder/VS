@@ -34,7 +34,7 @@ int main(){
     cin>>length>>breadth;
 
     rectangle val1, val2;
-    val1 = rectangle (length,10);
+    val1 = rectangle (5,10);
     val2 = rectangle (length);
 
     val1.area();
