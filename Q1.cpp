@@ -43,6 +43,7 @@ int main(){
 
     val1.area();
     val2.area();
+    val3
 
     return 0;
 
