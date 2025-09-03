@@ -29,9 +29,9 @@ class rectangle{
 
 int main(){
 
-    int length,breadth;
-    cout<<"Enter length and breadth : ";
-    cin>>length>>breadth;
+    // int length,breadth;
+    // cout<<"Enter length and breadth : ";
+    // cin>>length>>breadth;
 
     rectangle val1(5,10), val2(5);
 

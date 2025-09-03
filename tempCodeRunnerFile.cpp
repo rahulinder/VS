@@ -1,3 +1,3 @@
-    // void show(A a){
-    //     cout<<"i="<<a.i<<endl;
-    // }
+int length,breadth;
+    // cout<<"Enter length and breadth : ";
+    // cin>>length>>breadth;
