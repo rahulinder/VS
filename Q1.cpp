@@ -14,7 +14,7 @@ class rectangle{
         breadth = b;
     }
     
-    rectangle(float l){
+    rectangle(int l){
         length = l;
         breadth = 5;
     }
