@@ -44,7 +44,6 @@ int main(){
                 
         val[i] = rectangle();
 
-        val[i].area();
     }
 
     return 0;
