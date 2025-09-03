@@ -44,7 +44,7 @@ int main(){
         val[i].area();
         
         val[i];
-        val[i].area();
+        
     }
 
     return 0;
