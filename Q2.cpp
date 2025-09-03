@@ -20,6 +20,11 @@ class rectangle{
     rectangle(int l){
         length = l;
         breadth = l;
+
+        int area;
+        area = length*breadth;
+
+        cout<<area<<endl;
     }
     
     // int area(){
