@@ -41,7 +41,7 @@ int main(){
     // cout<<"Enter length and breadth : ";
     // cin>>length>>breadth;
 
-    rectangle val[3];
+    rectangle val[3]={};
     for(int i=0;i<1;i++){
         val[i] = rectangle(2,10);        
           
