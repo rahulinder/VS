@@ -33,10 +33,10 @@ int main(){
     cout<<"Enter length and breadth : ";
     cin>>length>>breadth;
 
-    rectangle val1(5,10), val2;
+    rectangle val1(5,10), val2();
 
-    val1 = rectangle (5,10);//exlicit
-    val2 = rectangle (length);
+    // val1 = rectangle (5,10);//exlicit
+    // val2 = rectangle (length);
 
     val1.area();
     val2.area();
