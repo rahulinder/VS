@@ -16,7 +16,7 @@ class rectangle{
     
     rectangle(int l){
         length = l;
-        breadth = 5;
+        breadth = l;
     }
     
     int area(){
