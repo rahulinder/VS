@@ -36,13 +36,6 @@ class rectangle{
 
         cout<<area<<endl;
     }
-    
-    // int area(){
-    //     int area;
-    //     area = length*breadth;
-
-    //     cout<<area<<endl;
-    // }
 };
 
 int main(){
