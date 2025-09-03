@@ -22,7 +22,6 @@ class rectangle{
 
         int area;
         area = length*breadth;
-
         cout<<area<<endl;
     }
     
