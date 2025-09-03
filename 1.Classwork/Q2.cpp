@@ -35,7 +35,6 @@ class rectangle{
     ~rectangle(){
         cout<<endl;
         cout<<"----------Destructor called----------"<<endl;
-        cout<<length<<"  "<<breadth<<endl;
         cout<<endl;
     }
 };

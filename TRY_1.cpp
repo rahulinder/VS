@@ -1,35 +1,35 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-class SmartInt {
+// The class no longer includes a vector.
+class PlayerProfile {
+private:
+    string username;
+
 public:
-    int* data;
-
-    SmartInt(int value) {
-        data = new int;
-        *data = value;
-        cout << "Constructor called for value " << *data << ". (Memory allocated)\n"<<endl;
+    // The constructor now only needs the player's name.
+    PlayerProfile(const string& name) {
+        username = name;
     }
 
-    ~SmartInt() {
-        cout << "Destructor called for value " << *data << ". (Memory freed!)\n"<<endl;
-        delete data;
-    }
-
-    void printValue() {
-        cout << "The value is: " << *data << "\n"<<endl;
+    // The display function is updated to only show the username.
+    void display() const {
+        cout << "--- Player Profile ---\n";
+        cout << "Username: " << username << "\n";
     }
 };
 
-void manageSmartInt() {
-    cout << "--- Entering manageSmartInt function ---\n"<<endl;
-    SmartInt myInt(42);
-    myInt.printValue();
-    cout << "--- Exiting manageSmartInt function ---\n"<<endl;
+void printProfile(const PlayerProfile& profile) {
+    profile.display();
 }
 
 int main() {
-    manageSmartInt();
-    cout << "--- Back in main, after function call. --- \n"<<endl;
+    // We now create the object by only providing a name.
+    PlayerProfile player1("Gemini");
+
+    printProfile(player1);
+
     return 0;
 }
