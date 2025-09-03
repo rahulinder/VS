@@ -52,7 +52,7 @@ int main(){
     // cin>>length>>breadth;
 
     rectangle val[3];
-    for(int i=0;i<2;i++){
+    for(int i=0;i<1;i++){
         val[i] = rectangle(2,10);        
           
         val[i] = rectangle(5);
