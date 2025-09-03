@@ -22,12 +22,12 @@ class rectangle{
         breadth = l;
     }
     
-    int area(){
-        int area;
-        area = length*breadth;
+    // int area(){
+    //     int area;
+    //     area = length*breadth;
 
-        cout<<area<<endl;
-    }
+    //     cout<<area<<endl;
+    // }
 };
 
 int main(){
