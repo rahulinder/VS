@@ -41,7 +41,9 @@ int main(){
         val[i] = rectangle(2,10);        
         val[i].area();        
         val[i] = rectangle(5);
+        val[i].area();
         val[i];
+        val[i].area();
     }
 
     return 0;
