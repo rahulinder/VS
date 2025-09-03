@@ -38,7 +38,7 @@ int main(){
 
     rectangle val[3];
     for(int i=0;i<2;i++){
-        val[i] = rectangle();
+        val[i] = rectangle(5,10);
     }
 
     return 0;
