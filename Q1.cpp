@@ -19,16 +19,22 @@ class rectangle{
         breadth = 5;
     }
     
-    int area(int l , int b){
+    int area(){
         float area;
-        area = l*b;
-        return area;
+        area = length*breadth;
+
+        cout<<area<<endl;
     }
 };
 
 int main(){
-    
+    rectangle val1, val2;
+    val1 = rectangle (10,10);
+    val2 = rectangle (10);
 
-return 0;
+    val1.area();
+    val2.area();
+
+    return 0;
 
 }
