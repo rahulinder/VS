@@ -36,14 +36,10 @@ int main(){
     // cout<<"Enter length and breadth : ";
     // cin>>length>>breadth;
 
-    rectangle val1(5,10), val2(5), val3;//implicit call
-
-    // val1 = rectangle (5,10);//exlicit call
-    // val2 = rectangle (length);
-
-    val1.area();
-    val2.area();
-    val3.area();
+    rectangle val[3];
+    for(int i=0;i<2;i++){
+        val[i]
+    }
 
     return 0;
 
