@@ -35,7 +35,7 @@ int main(){
 
     rectangle val1(5,10), val2(5);//implicit call
 
-    // val1 = rectangle (5,10);//exlicit
+    // val1 = rectangle (5,10);//exlicit call
     // val2 = rectangle (length);
 
     val1.area();
