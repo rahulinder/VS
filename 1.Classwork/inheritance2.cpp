@@ -23,7 +23,7 @@ class D:public B{//derived class
 int main(){
     D ob1;
     ob1.show();    
-
+    //ob1.c=30;
 return 0;
 }
 
