@@ -16,7 +16,7 @@ class D:public B{//derived class
         b=20;
         c=30;
         cout<<endl<<b<<endl<<c;
-        // cout<<a<<endl<<b<<endl<<c;
+        // cout<<a<<endl<<b<<endl<<c; // a
     }
 };
 
