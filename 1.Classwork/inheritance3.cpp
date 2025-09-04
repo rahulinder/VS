@@ -1,1 +1,1 @@
-//define a class area having
+//define a class area having two data variables l and b 
