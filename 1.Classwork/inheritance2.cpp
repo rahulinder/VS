@@ -10,7 +10,7 @@ class B{//base class
 };
 
 class D:public B{//derived class
-    public:
+    public://acces specifier public
     void show(){
         //a=10;
         b=20;
