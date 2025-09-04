@@ -3,6 +3,10 @@ using namespace std;
 
 class B{
     int a;
+    protected:
+    int b;
+    public:
+    int c;
 };
 
 int main(){
