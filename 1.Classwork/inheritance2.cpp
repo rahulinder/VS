@@ -21,7 +21,8 @@ class D:public B{//derived class
 };
 
 int main(){
-    D ob1;    
+    D ob1;
+    ob1.show();    
 
 return 0;
 }
