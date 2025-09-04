@@ -16,12 +16,12 @@ class D:public B{//derived class
         b=20;
         c=30;
         cout<<endl<<b<<endl<<c;
-        // cout<<a<<endl<<b<<endl<<c; // a
+        // cout<<a<<endl<<b<<endl<<c; // a won't work
     }
 };
 
 int main(){
-    
+    D ob1;    
 
 return 0;
 }
