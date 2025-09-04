@@ -9,7 +9,12 @@ class B{
             int c;
 };
 
-
+class D:public B{
+    public:
+    void show(){
+        
+    }
+};
 
 int main(){
     
