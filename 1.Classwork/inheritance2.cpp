@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-class {
-    
+class B{
+    int a;
 };
 
 int main(){
