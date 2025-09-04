@@ -1,1 +1,1 @@
-//define a class area having two data variables l and b 
+//define a class area having two data variables l and b in private scope
