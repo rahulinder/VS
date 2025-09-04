@@ -6,7 +6,7 @@ class B{//base class
         protected:
         int b;
             public:
-            int c;
+            int c; // c is in protected scope
 };
 
 class D:public B{//derived class
