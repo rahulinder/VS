@@ -20,6 +20,17 @@ class D:public B{//derived class
     }
 };
 
+class D:public B{//derived class
+    public://acces specifier public
+    void show(){
+        //a=10;
+        b=20;
+        c=30;
+        cout<<endl<<b<<endl<<c;
+        // cout<<a<<endl<<b<<endl<<c; // a won't work
+    }
+};
+
 int main(){
     D ob1;
     ob1.show();    
