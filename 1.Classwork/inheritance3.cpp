@@ -1,2 +1,3 @@
-/*define a class area having two data variables l and b in private scope define a member function input to enter thevalues of l and b
+/*define a class area having two data variables l and b in private scope define a member function 
+input to enter thevalues of l and b
 */
