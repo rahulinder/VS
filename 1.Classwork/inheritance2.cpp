@@ -9,6 +9,8 @@ class B{
             int c;
 };
 
+
+
 int main(){
     
 
