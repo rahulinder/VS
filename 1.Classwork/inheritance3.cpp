@@ -11,8 +11,8 @@ class area{
     protected:
     int l,b;
     public:
-    area(){
-        
+    area(int x, int y){
+        l=x;b=y;        
     }
     // area(){
     //     cout<<"\nBase class constructor";
@@ -36,10 +36,12 @@ class area{
 class volume:public area{
     int h;
     public:
-    volume(){
-        cout<<"\nDerived class constructor";
-        cout<<"\nEnter h : ";
-        cin>>h;
+    // volume():area(5,6){
+    volume(int m, int n):area(m,n){
+        // cout<<"\nDerived class constructor";
+        // cout<<"\nEnter h : ";
+        // cin>>h;
+        h=o;
     }
     ~volume(){
         cout<<"\nDerived destructor ";
@@ -56,7 +58,9 @@ class volume:public area{
 };
 
 int main(){
-    volume ob; //constructor for class area will be called first becuse class volume is inheriting properties form class area 
+    volume ob(5,6); //constructor for class area will be called first becuse class volume is inheriting properties form class area 
+    //volume ob(2,5);//error
+    //
     // ob.input();
     // ob.init();
     ob.v();
