@@ -20,7 +20,7 @@ class D:public B{//derived class
     }
 };
 
-// class D:public B{//derived class
+// class D:protected B{//derived class protected
 //     public://acces specifier public
 //     void show(){
 //         //a=10;
@@ -31,7 +31,7 @@ class D:public B{//derived class
 //     }
 // };
 
-class D:public B{//derived class
+// class D:private B{//derived class private
 //     public://acces specifier public
 //     void show(){
 //         //a=10;
