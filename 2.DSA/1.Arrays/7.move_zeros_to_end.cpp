@@ -20,7 +20,7 @@ int zcount=0;
     for(int i=0;i<m;i++){
         arr[i]=temp[i];
     }
-for(int i=n-zcount;i<n;i++){
+for(int i=n-zcount;i<n ;i++){
     arr[i]=0;
     
 }
