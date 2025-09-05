@@ -1,5 +1,42 @@
+Loop 1
+Loop 2
+Loop 3
+Before updation
+arr[i] : 2
+arr[temp] :1
+arr[temp-1] :1
+temp : 1
 
-bank() called
+Before updation
+arr[i] : 2
+arr[temp] :2
+arr[temp-1] :1
+temp : 1
 
-Principle amount of 100000 over the period of 3 Years with 0.05 has become 115000
-Principle amount of 100000 over the period of 3 Years with 5 has become 115000
+Before updation
+arr[i] : 2
+arr[temp] :1
+arr[temp-1] :2
+temp : 2Loop 4
+Loop 5
+Loop 6
+Loop 7
+Before updation
+arr[i] : 3
+arr[temp] :1
+arr[temp-1] :2
+temp : 2
+
+Before updation
+arr[i] : 3
+arr[temp] :3
+arr[temp-1] :2
+temp : 2
+
+Before updation
+arr[i] : 3
+arr[temp] :2
+arr[temp-1] :3
+temp : 3Loop 8
+Loop 9
+
