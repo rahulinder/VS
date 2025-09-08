@@ -10,20 +10,13 @@ int zcount=0;
     for(int i=0;i<n;i++){
         if(arr[i]!=0){
         temp[j]=arr[i];  //'i' not used in temp[j] because "i" will update till 9 but temp[] has only 5 elements
-    
+        arr[i]=0;
         j++;
         }
-        else 
-        zcount++;
     }
-
     for(int i=0;i<m;i++){
         arr[i]=temp[i];
     }
-for(int i=n-zcount;i<n ;i++){
-    arr[i]=0;
-    
-}
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }

@@ -1,0 +1,1 @@
+cout<<"element "<<s<<" found at "<<i<<"position.";
