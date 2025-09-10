@@ -6,7 +6,6 @@ class number{
 
     public:
     number(){
-        cout<<"z"<<endl;
     }
     
     number(int a){

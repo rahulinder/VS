@@ -1,53 +1,38 @@
 #include<iostream>
 using namespace std;
-struct queue{
-    int size;
-    int front ;
-    int rear;
-    int *q;
+
+class A {
+public:
+    int x, y;
+
+    void setval(int x1, int y1) {
+        x = x1;
+        y = y1;
+    }
+
+    // Added a display function to see the results.
+    void display() {
+        cout << "x = " << x << ", y = " << y << endl;
+    }
 };
-int dequeue(struct queue * st){
-    int x=-1;
-    if(st->front==st->rear){
-        cout<<"queue underflown";}
-        else {
-        st->front++;;
-       x= st->q[st->front];
-        return x;}
 
-    }
-
-
-void enqueue(struct queue *st,int x){
-if(st->rear==st->size-1){
-cout<<"queue overflown";
-}
-else {
-    st->rear++;
-    
-    st->q[st->rear]=x;
-    
-    }
+A sum(A o1, A o2) {
+    A temp;
+    temp.x = o1.x + o2.x;
+    temp.y = o1.y + o2.y;
+    return temp;
 }
 
+int main() {
+    A ob1, ob2, ob3;
+    ob1.setval(4, 8);
+    ob2.setval(3, 6);
 
+    // ob3 receives the object returned from the sum function.
+    ob3 = sum(ob1, ob2);
 
-int main(){
-    struct queue j;
-    j.size=8;
-    j.front=-1;
-    j.rear=-1;
-    j.q=new int[j.size];
-enqueue(&j,5);
-cout<<j.q[j.rear]<<endl;
-enqueue(&j,67);
-cout<<j.q[j.rear]<<endl;
-enqueue(&j,555);
-cout<<j.q[j.rear]<<endl;
-dequeue(&j);
-cout<<j.q[j.front]<<endl;
-dequeue(&j);
-    cout<<j.q[j.front]<<endl;
+    cout << "Result in ob3: ";
+    ob3.display(); // Displays: x = 7, y = 14
 
-return 0;
+    return 0;
 }
