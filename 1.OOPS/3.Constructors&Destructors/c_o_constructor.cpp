@@ -34,9 +34,6 @@ number::number(/*void*/){ //-----This is a default constructor, it does not take
 
 int main(){
     number n;
-
     n.print();
-
-
 return 0;
 }

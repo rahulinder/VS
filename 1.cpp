@@ -13,27 +13,22 @@ public:
     }
 };
 
-A* sum(A* o1_ptr, A* o2_ptr) {
-    A* temp_ptr = new A();
-    temp_ptr->x = o1_ptr->x + o2_ptr->x;
-    temp_ptr->y = o1_ptr->y + o2_ptr->y;
+void sum(const A* o1_ptr, const A* o2_ptr, A* result_ptr) {
 
-    return temp_ptr;
+    result_ptr->x = o1_ptr->x + o2_ptr->x;
+    result_ptr->y = o1_ptr->y + o2_ptr->y;
+}
 
 int main() {
-    A ob1, ob2;
+    A ob1, ob2, ob3;
+    
     ob1.setval(4, 8);
     ob2.setval(3, 6);
 
-    A* ob3_ptr;
+    sum(&ob1, &ob2, &ob3);
 
-    ob3_ptr = sum(&ob1, &ob2);
-
-    cout << "Result pointed to by ob3_ptr: ";
-    ob3_ptr->display(); // Displays: x = 7, y = 14
-
-    // CRITICAL: We must free the memory we allocated with 'new'.
-    delete ob3_ptr;
+    cout << "Result in ob3: ";
+    ob3.display();
 
     return 0;
 }
