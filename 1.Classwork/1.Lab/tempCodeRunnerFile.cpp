@@ -1,1 +1,0 @@
-    // ob_sum.sum(ob1,ob2);

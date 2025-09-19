@@ -10,12 +10,9 @@ int main() {
     int r,c,val;
 
     for(int i=0;i<8;i++) {
-
-        cout<<"Enter the values for row "<<i<<" : ";
         cin>>r>>c>>val;
-
         matrix[r][c]=val;
-    }l
+    }
 
     cout<<"Filled values";
 

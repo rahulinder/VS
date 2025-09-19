@@ -1,12 +1,17 @@
+/*
+Insertion :
+-at the beginning of list 
+-at the end of list
+-in between two nodes
+-after a node
+*/
 #include <iostream>
-
 using namespace std;
 
 struct node {
     int data;
     node* next;
 };
-
 
 void traversal(node* ptr) {
     while (ptr != NULL) {
@@ -22,21 +27,25 @@ node* atfirst(node* head, int data){
     return ptr;
 }
 
-// NOTE: This function's return value is not used, a 'void' return type would be clearer.
-node* inbetween(node* second, node* third, int data){
+void inbetween(node* second, node* third, int data){
     node* ptr = new node();
     second->next = ptr;
     ptr->data = data;
     ptr->next = third;
-    return ptr;
 }
 
-node* atend(node* fifth, int data){
+void atend(node* end, int data){
     node* ptr = new node();
     ptr->data = data;
-    fifth->next = ptr;
+    end->next = ptr;
     ptr->next = NULL;
-    return ptr;
+}
+
+void afternode(node* prevNode, int data){
+    node* ptr = new node();
+    ptr->data = data;
+    ptr->next = prevNode->next;
+    prevNode->next = ptr;
 }
 
 int main() {
@@ -44,13 +53,13 @@ int main() {
     node* second;
     node* third;
     node* fourth;
-    node* fifth;
+    node* end;
 
     head = new node();
     second = new node();
     third = new node();
     fourth = new node();
-    fifth = new node();
+    end = new node();
 
     head->data = 2;
     head->next = second;
@@ -62,10 +71,10 @@ int main() {
     third->next = fourth;
 
     fourth->data = 8;
-    fourth->next = fifth;
+    fourth->next = end;
 
-    fifth->data = 10;
-    fifth->next = NULL;
+    end->data = 10;
+    end->next = NULL;
 
     cout<<endl<<"--------Original--------"<<endl;
     traversal(head);
@@ -78,8 +87,12 @@ int main() {
     cout<<endl<<"--------In Between--------"<<endl;
     traversal(head);
     
-    atend(fifth,11);
+    atend(end,11);
     cout<<endl<<"----------At End----------"<<endl;
+    traversal(head);
+    
+    afternode(third,7);
+    cout<<endl<<"--------After Node---------"<<endl;
     traversal(head);
 
     return 0;

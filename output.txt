@@ -1,4 +1,46 @@
-Enter the value of L and B : Area of rectangle 0 is 300000
-Enter the value of L and B : Area of rectangle 1 is 0
-Enter the value of L and B : Area of rectangle 2 is 1337596414
-Enter the value of L and B : Area of rectangle 3 is 64635880
+----------Filled values----------
+15	22	0	0	0	-15	0	0	
+0	11	3	0	0	0	0	0	
+0	0	0	-6	0	0	0	0	
+0	0	0	0	0	0	0	0	
+91	0	0	0	0	0	0	0	
+0	0	28	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+Choose option :
+1)Transpose
+2)Addition
+3)Multiplication
+Enter 1-3 :
+
+----------Transposded----------
+15   0   0   0   91   0   0   0   
+22   11   0   0   0   0   0   0   
+0   3   0   0   0   28   0   0   
+0   0   -6   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+-15   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+
+
+----------Added----------
+30   22   0   0   91   -15   0   0   
+22   22   3   0   0   0   0   0   
+0   3   0   -6   0   28   0   0   
+0   0   -6   0   0   0   0   0   
+91   0   0   0   0   0   0   0   
+-15   0   28   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+0   0   0   0   0   0   0   0   
+
+
+----------Multiplied----------
+225	0	0	0	0	0	0	0	
+0	121	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
+0	0	0	0	0	0	0	0	
