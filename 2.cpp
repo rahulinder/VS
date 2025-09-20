@@ -1,86 +1,53 @@
-#include <iostream>
-
+#include<iostream>
 using namespace std;
 
-struct node {
-    int data;
-    node* next;
+class Student {
+protected:
+    int roll_no;
+public:
+    void set_rollno(int r) {
+        roll_no = r;
+    }
+
+    int get_rollno() {
+        return roll_no;
+    }
 };
 
-
-void traversal(node* ptr) {
-    while (ptr != NULL) {
-        cout << "\tElement : " << ptr->data << endl;
-        ptr = ptr->next;
+class Exam : public Student {
+protected:
+    float chem;
+    float phy;
+    float math;
+public:
+    void set_marks(float c, float p, float m) {
+        chem = c;
+        phy = p;
+        math = m;
     }
-}
+};
 
-node* atfirst(node* head, int data){
-    node* ptr = new node();
-    ptr->next = head;
-    ptr->data = data;
-    return ptr;
-}
+class Result : public Exam {
+    // No calculation here
+    float per;
+public:
+    void display() {
+        // Calculate the percentage just before displaying
+        per = (chem + phy + math) / 3.0;
 
-// NOTE: This function's return value is not used, a 'void' return type would be clearer.
-node* inbetween(node* second, node* third, int data){
-    node* ptr = new node();
-    second->next = ptr;
-    ptr->data = data;
-    ptr->next = third;
-    return ptr;
-}
-
-node* atend(node* fifth, int data){
-    node* ptr = new node();
-    ptr->data = data;
-    fifth->next = ptr;
-    ptr->next = NULL;
-    return ptr;
-}
+        cout << "Roll No : " << get_rollno() << endl;
+        cout << "Chemistry : " << chem << endl;
+        cout << "Physics : " << phy << endl;
+        cout << "Maths : " << math << endl;
+        cout << "Percentage : " << per << "%" << endl;
+    }
+};
 
 int main() {
-    node* head;
-    node* second;
-    node* third;
-    node* fourth;
-    node* fifth;
-
-    head = new node();
-    second = new node();
-    third = new node();
-    fourth = new node();
-    fifth = new node();
-
-    head->data = 2;
-    head->next = second;
-
-    second->data = 4;
-    second->next = third;
-
-    third->data = 6;
-    third->next = fourth;
-
-    fourth->data = 8;
-    fourth->next = fifth;
-
-    fifth->data = 10;
-    fifth->next = NULL;
-
-    cout<<endl<<"--------Original--------"<<endl;
-    traversal(head);
-
-    head = atfirst(head,1);
-    cout<<endl<<"--------At Beginning--------"<<endl;
-    traversal(head);
-    
-    inbetween(second, third, 5);
-    cout<<endl<<"--------In Between--------"<<endl;
-    traversal(head);
-    
-    atend(fifth,11);
-    cout<<endl<<"----------At End----------"<<endl;
-    traversal(head);
+    Result s1;
+    s1.set_rollno(25);
+    s1.set_marks(90, 80, 70);
+    s1.display(); // Now this will show the correct percentage
 
     return 0;
 }
