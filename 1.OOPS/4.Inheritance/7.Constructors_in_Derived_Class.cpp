@@ -17,6 +17,9 @@ class Base1{
         data1 = b1;
         cout<<"Base1 constructor called..."<<data1<<endl;
     }
+    ~Base1(){
+    cout<<"Base1 Constructor called..."<<endl;
+    }
 };
 
 class Base2{
@@ -27,26 +30,33 @@ class Base2{
         data2 = b2;
         cout<<"Base2 constructor called..."<<data2<<endl;
     }
+    ~Base2(){
+        cout<<"Base2 Constructor called..."<<endl;
+    }
 };
 
 class Derived : public Base1, public Base2{
+    //constructor will be called according to the order of class declared here
     int data3;
     public:
     Derived(){}
-    Derived(int b1, int b2, int d1) : Base1(b1), Base2(b2){
-        data3 = d1;
+    Derived(int b1, int b2, int d1) :  Base2(b2), Base1(b1), data3(d1){//Initilalization list in Constructor data3(d1) is direcotrly initialized
+    // Derived(int b1, int b2, int d1) :  Base2(b2), Base1(b1){
+    /*changing the order of passing value won't change the 
+      order of calling costructor                       */
+        // data3 = d1;
         cout<<"Derived constructor called..."<<data3<<endl;
+    }
+    ~Derived(){
+        cout<<endl<<"Derived Destructor called..."<<endl;
     }
 };
 
 int main(){
-    cout<<"----------OB1----------"<<endl;
-
-    Derived ob(100, 200, 300), ob2;
+    Derived ob(100, 200, 300);
     
-    cout<<endl<<"----------OB2----------"<<endl;
-
-    ob2 = Derived(400, 500, 600);
-
 return 0;
 }
+/*
+Destructor are called in the reverse order of Constructor
+*/
