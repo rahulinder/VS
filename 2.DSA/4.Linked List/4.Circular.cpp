@@ -7,8 +7,7 @@ struct node{
 };
 void traverse(node* head){
     int i = 1;
-    node* ptr;
-    ptr = new node();
+    node* ptr = new node();
     ptr = head;
     cout<<"\t Element of node "<<i<<" : "<<ptr->data<<endl; i++;
     ptr = ptr->next;
