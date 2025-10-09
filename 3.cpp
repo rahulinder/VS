@@ -1,49 +1,55 @@
 #include <iostream>
+#include <stack>
+#include <string>
 using namespace std;
 
-class SmartTV {
-private:
-    int volume;
-    int modelID; 
-    public:
-    SmartTV(int id, int vol) : modelID(id), volume(vol) {}
-    // A regular, non-const member function.
-    // It is ALLOWED to change member variables.
-    void increaseVolume() {
-        volume++;
-        cout << "Volume increased to " << volume << endl;
+int precedence(char op) {
+    if (op == '*' || op == '/')
+        return 2;
+    if (op == '+' || op == '-')
+        return 1;
+    return 0;
+}
+
+void reverseString(string &str) {
+    int left = 0;
+    int right = str.length() - 1;
+    while (left < right) {
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+        left++;
+        right--;
     }
-    // This is a const member function, declared with 'const' at the end.
-    // It PROMISES not to modify 'volume' or 'modelID'.
-    void displayStatus() const {
-        cout << "--- TV Status ---" << endl;
-        cout << "Model ID: " << modelID << endl; // Displaying the integer ID
-        // ---- VALID OPERATION: Reading data ----
-        // This is perfectly fine, as it does not change any member variables.
-        cout << "Current Volume: " << volume << endl;
-        cout << "-----------------" << endl;
+}
+
+string infixToPrefix(string infix) {
+    reverseString(infix);
+    
+    stack<char> s;
+    string postfix_temp = "";
+
+    for (char& ch : infix) {
+        if (isalnum(ch)) {
+            postfix_temp += ch;
+        } else {
+            while (!s.empty() && precedence(ch) < precedence(s.top())) {
+                postfix_temp += s.top();
+                s.pop();
+            }
+            s.push(ch);
+        }
     }
-};
+    while (!s.empty()) {
+        postfix_temp += s.top();
+        s.pop();
+    }
+    reverseString(postfix_temp);
+    return postfix_temp;
+}
 
 int main() {
-    SmartTV livingRoomTV(8500, 15);
-
-    cout << "--- Testing a regular object ---" << endl;
-    // We can call both const and non-const functions on it.
-    livingRoomTV.displayStatus();
-    livingRoomTV.increaseVolume();
-    livingRoomTV.displayStatus();
-
-    cout << "\n--- Testing a const object ---" << endl;
-    // Now, create a constant object. Its state cannot be changed after creation.
-    const SmartTV bedRoomTV(7700, 20);
-
-    // Calling a const member function on a const object is ALLOWED.
-    bedRoomTV.displayStatus();
-
-    // Calling a non-const member function on a const object is FORBIDDEN.
-    // bedRoomTV.increaseVolume(); // COMPILE ERROR: The object 'bedRoomTV' is const,
-                                // and increaseVolume() is not a const function.
-
+    string infix = "x-y/z-k*d";
+    string prefix = infixToPrefix(infix);
     return 0;
 }

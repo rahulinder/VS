@@ -1,96 +1,44 @@
 #include <iostream>
+#include <stack>
+#include <string>
 using namespace std;
 
-struct CircularQueue {
-    int* arr;
-    int size;
-    int front;
-    int rear;
+int precedence(char op) {
+    if (op == '*' || op == '/')
+        return 2;
+    if (op == '+' || op == '-')
+        return 1;
+    return 0;
+}
 
-    ~CircularQueue() {
-        delete[] arr;
-    }
+string infixToPostfix(string infix) {
+    stack<char> s;
+    string postfix = "";
 
-    bool isFull() {
-        return (rear + 1) % size == front;
-    }
-
-    bool isEmpty() {
-        return front == -1;
-    }
-
-    void enqueue(int val) {
-        if (isFull()) {
-            cout << "Queue is full. Cannot enqueue " << val << endl;
-            return;
+    for (char& ch : infix) {
+        if (isalnum(ch)) {
+            postfix += ch;
         }
-        if (isEmpty()) {
-            front = 0;
-        }
-        rear = (rear + 1) % size;
-        arr[rear] = val;
-        cout << val << " enqueued to queue." << endl;
-    }
-
-    int dequeue() {
-        if (isEmpty()) {
-            cout << "Queue is empty. Cannot dequeue." << endl;
-            return -1;
-        }
-        int val = arr[front];
-        if (front == rear) {
-            front = -1;
-            rear = -1;
-        } else {
-            front = (front + 1) % size;
-        }
-        return val;
-    }
-
-    void display() {
-        if (isEmpty()) {
-            cout << "Queue is empty." << endl;
-            return;
-        }
-        cout << "Elements in queue: ";
-        int i = front;
-        while (true) {
-            cout << arr[i] << " ";
-            if (i == rear) {
-                break;
+        else {
+            while (!s.empty() && precedence(ch) <= precedence(s.top())) {
+                postfix += s.top();
+                s.pop();
             }
-            i = (i + 1) % size;
+            s.push(ch);
         }
-        cout << endl;
     }
-};
+    while (!s.empty()) {
+        postfix += s.top();
+        s.pop();
+    }
+
+    return postfix;
+}
 
 int main() {
-    CircularQueue q;
-        q.size = 5;
-        q.arr = new int[q.size];
-        q.front = -1;
-        q.rear = -1;
-
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.enqueue(40);
-    q.enqueue(50);
-    
-    q.display();
-    q.enqueue(60); 
-
-    cout << "\nDequeued element: " << q.dequeue() << endl;
-    cout << "Dequeued element: " << q.dequeue() << endl;
-    
-    q.display();
-
-    cout << "\nEnqueuing again to demonstrate wrap-around..." << endl;
-    q.enqueue(70);
-    q.enqueue(80);
-
-    q.display();
-    
+    string infix = "x-y/z-k*d";
+    string postfix = infixToPostfix(infix);
+    cout << "Infix expression: " << infix << endl;
+    cout << "Postfix expression: " << postfix << endl;
     return 0;
 }

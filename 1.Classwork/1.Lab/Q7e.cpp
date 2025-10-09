@@ -5,12 +5,12 @@ int main() {
     int n=6;
     int matrix[6][6]={0};
     int v;
+    int row = 0;
+    int col = 0;
 
     for(int i=0;i<n;i++){
-        for(int j=0 ;j<n;j++){
-            cin>>matrix[i][j]>>v;
-            matrix[i][j]=v;
-        }
+            cin>>row>>col>>v;
+            matrix[row][col]=v;
     }
 
     for(int i=0;i<n;i++){
