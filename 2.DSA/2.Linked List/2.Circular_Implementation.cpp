@@ -8,12 +8,13 @@ class node{
 };
 
 void traverse(node* head){
+    if (head == NULL) return;
     node*ptr = head;
     int i = 0;
-    while(ptr->next != head){
+    do{
         cout<<"Data at Node "<<++i<<" is : "<<ptr->data<<endl;
         ptr = ptr->next;
-    }
+    }while(ptr != head);
 }
 
 node* atFirst(node* head, int val){
@@ -21,7 +22,54 @@ node* atFirst(node* head, int val){
     newHead->data = val;
     newHead->next = head;
 
+    node* ptr = head;
+    while(ptr->next != head){
+        ptr = ptr->next;
+    }
+    ptr->next = newHead;
+
     return newHead;
+}
+
+void atEnd(node* head, int val){
+    node* newEnd = new node();
+    newEnd->data = val;
+
+    node* ptr = head;
+    while(ptr->next != head){
+        ptr = ptr->next;
+    }
+    ptr->next = newEnd;
+    newEnd->next = head;
+}
+
+node* deletion(node* head, int data){
+    node* ptr = head;
+    
+    if(ptr->data == data){//For Head node
+        node* lastNode = head;
+        while(lastNode->next != head){
+            lastNode = lastNode->next;
+        }
+        node* newHead = head->next;
+        lastNode->next = newHead;
+        delete head;
+        return newHead;
+    }
+    else{
+        node* prev = head;
+        ptr = head->next;
+        while(ptr != head && ptr->data != data){
+            prev = ptr;
+            ptr = ptr->next;
+        }
+        
+        if(ptr != head){ // If node was found
+            prev->next = ptr->next;
+            delete ptr;
+        }
+        return head;
+    }
 }
 
 int main(){
@@ -43,6 +91,15 @@ int main(){
     cout<<endl<<endl;
     traverse(head);
     
+    atEnd(head, 70);
+    
+    cout<<endl<<endl;
+    traverse(head);
+     
+    head = deletion(head, 5);
+    
+    cout<<endl<<endl;
+    traverse(head);
 
     return 0;
 }

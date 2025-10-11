@@ -13,10 +13,10 @@ class node{
 void traversal(node* head){
     node* ptr = head;
     int i = 0;
-    while(ptr->next != NULL){
+    do{
         cout<<"Data of node "<<++i<<" is : "<<ptr->data<<endl;
         ptr = ptr->next;
-    }
+    }while(ptr != NULL);
 }
 
 node* atfirst(node* head, int val){
@@ -78,7 +78,7 @@ int main(){
     cout<<endl<<endl;
     traversal(head);
 
-    atend(head, 60);
+    atend(head, 70);
     
     cout<<endl<<endl;
     traversal(head);
