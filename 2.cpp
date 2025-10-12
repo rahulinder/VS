@@ -1,18 +1,20 @@
-#include <iostream>
-using namespace std;
+node* reverseList(node* head){
+    node* prev = NULL;
+    node* curr = head;
+    node* next = NULL;
 
-struct Node {
-    int data;
-    Node* next;
-};
-
-void printList(Node* head) {
-    Node* current = head; 
-    while (current != nullptr) {
-        cout << current->data << " -> ";
+    while(curr != NULL){
+        // Store the next node
+        next = curr->next;
         
-        current = current->next;
+        // Reverse the current node's pointer
+        curr->next = prev;
+
+        // Move pointers one position ahead
+        prev = curr;
+        curr = next;
     }
-    
-    cout << "NULL" << endl;
+    // prev is the new head of the reversed list
+    head = prev;
+    return head;
 }
