@@ -35,9 +35,22 @@ int main(){
     ob_derived.show();// It will call show() of Derived class
 
     ptr_base->show();// It will call show() of Base class
-    /*  'ptr_base->show(); ' is indirectly same as 'ob_derived.show(); ' 
+    /*  'ptr_base->show(); ' should works same as 'ob_derived.show(); ' 
           but 'ptr_base->show(); ' due to its default behaviour calls the 'show() ' of base class
           this is resolved by virtual function
+    */
+
+    /*
+    There cannot be a Base class object and Derived class pointer to object,
+    it will result in error.
+    e.g:
+    Base ob_base;
+    Derived* ptr_derived;
+
+    ptr_derived = &ob_base;
+
+    ob_base.show();
+    ptr_derived->show();
     */
 
     return 0;

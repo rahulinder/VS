@@ -1,72 +1,41 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class ListNode{
-    public:
-    int val;
-    ListNode* next;
+class Point {
+private:
+    int x;
+    int y;
+public:
+    Point(int x_val = 0, int y_val = 0) {
+        x = x_val;
+        y = y_val;
+    }
+    Point operator +(const Point& other) {
+        Point temp;
+        temp.x = this->x + other.x;
+        temp.y = this->y + other.y;
+        return temp;
+    }
+    void display() {
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
 };
 
-void display(ListNode* head){
-    cout<<endl;
-    ListNode* curr = head;
-
-    while(curr != nullptr){
-        cout<<curr->val<<" —> ";
-        curr = curr->next;
-    }
-    cout<<"NULL";
-}
-
-ListNode* addTwoNumbers(ListNode* l1, ListNode* l2){
-    ListNode* result = new ListNode();
-    ListNode** curr = &result;    
-    int carry = 0;
-    int sum = 0;
-
-    while(l1 == nullptr || l2 ==nullptr || carry != 0){
-        sum = (l1->val + l2->val);
-        if(sum%10 == 0 && sum < 10){
-            (*curr)->val = sum;
-            *curr = (*curr)->next;
-        }
-        else if(sum%10 == 0 && sum >= 10){
-            (*curr)->val = sum / 10;
-            *curr = (*curr)->next;
-
-            int x = sum - 10;
-            (*curr)->val = x;
-            *curr = (*curr)->next;
-        }
-        else if(sum%10 != 0){
-
-        }
-        l1 = l1->next;
-        l2 = l2->next;
-    }
-}
-
-int main(){
-    ListNode* headA = new ListNode();    ListNode* headB = new ListNode();
-    ListNode* A2 = new ListNode();    ListNode* B2 = new ListNode();
-    ListNode* A3 = new ListNode();    ListNode* B3 = new ListNode();
-
-    headA->val = 2;     headB->val = 5;
-    headA->next = A2;   headB->next = B2;
-
-    A2->val = 4;    B2->val = 0;
-    A2->next = A3;    B2->next = B3;
-
-    A3->val = 3;    B3->val = 8;
-    A3->next =nullptr;    B3->next =nullptr;
-
-    // display(headA);
-    // display(headB);
-
-    ListNode* results;
+int main() {
+    Point p1(10, 20);
+    Point p2(5, 3);
     
-    results = addTwoNumbers(headA, headB);
-    display(results);
+    // Use the overloaded + operator
+    Point p3 = p1 + p2;
+
+    cout << "Point 1: ";
+    p1.display();
+    
+    cout << "Point 2: ";
+    p2.display();
+
+    cout << "Sum (p1 + p2): ";
+    p3.display();
 
     return 0;
 }

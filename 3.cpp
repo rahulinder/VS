@@ -1,28 +1,31 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class Base {
-public:
-    // virtual void show() {
-    void show() {
-        cout << "Base class" << endl;
+class Base{
+    public:
+    Base(){
+        cout<<"\nBase Constructor Called...\n";
+    }
+    ~Base(){
+        cout<<"\nBase Destructor Called...\n";
     }
 };
 
-class Derived : public Base {
-public:
-    // void show() override {
-    void show(){    
-        cout << "Derived class" << endl;
+class Derived : public Base{
+    public:
+    Derived(){
+        cout<<"\nDerived Constructor Called...\n";
+    }
+    ~Derived(){
+        cout<<"\nDerived Destructor Called...\n";
     }
 };
 
-int main() {
-    Base* base_ptr;
-    Derived derived_obj;
-
-    base_ptr = &derived_obj;
-    base_ptr->show();    // Calls the show() function of the Derived class
+int main(){
+    Base* ptr_base;
+    Derived ob_derived;
+    
+    // ptr_base = & ob_derived;
 
     return 0;
 }
