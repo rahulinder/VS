@@ -48,10 +48,6 @@ node* createNode(int total){
     }
 }
 
-node* initialize(node* headA, node* headB){
-
-}
-
 node* merge(node* headA, node* headB){
     if(headA == NULL){
         return headB;
