@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 class tree{
     public:
     int data;
@@ -11,59 +12,64 @@ class tree{
         data = d;
         left = nullptr;
         right = nullptr;
-    }    
+    } 
 };
-
-void preorder(tree* root){
-    if(root != nullptr){
-        cout<<root->data<<" ";
-        preorder(root->left);
-        preorder(root->right);
-    }
-}
-
-void postorder(tree* root){
-    if(root != nullptr){
-        postorder(root->left);
-        postorder(root->right);
-        cout<<root->data<<" ";
-    }
-}
 
 void inorder(tree* root){
     if(root != nullptr){
         inorder(root->left);
-        cout<<root->data<<" ";
-        inorder(root->right);
+        cout << root->data << " ";
+        inorder(root->right); 
     }
 }
 
+static tree* prevNode = nullptr; 
+
+int isBST(tree* root){
+    if(root == nullptr){
+        return 1; 
+    }
+    if(!isBST(root->left)){
+        return 0;
+    }
+    if(prevNode != nullptr && root->data <= prevNode->data){
+        return 0;
+    }
+    prevNode = root;
+
+    return isBST(root->right);
+}
+
 int main(){
-    tree* root = new tree(6);           tree* p1 = new tree(7);
-    tree* p2 = new tree(5);               tree* p3 = new tree(8);
-    tree* p4 = new tree(4);               tree* p5 = new tree(9);
-    tree* p6 = new tree(3);               tree* p7 = new tree(10);
-    tree* p8 = new tree(2);               tree* p9 = new tree(11);
-    tree* p10 = new tree(1);
-    
-    root->left = p6;                             
-    root->right = p5;                          
+    tree* root = new tree(6);           tree* n7 = new tree(7);
+    tree* n5 = new tree(5);               tree* n8 = new tree(8);
+    tree* n4 = new tree(4);               tree* n9 = new tree(9);
+    tree* n3 = new tree(3);                tree* n10 = new tree(10);
+    tree* n2 = new tree(2);                tree* n1 = new tree(1); 
+    tree* n11 = new tree(11); 
+        
+    root->left = n3; 
+    root->right = n9; 
 
-    p6->left = p8;                    p5->left = p3;
-    p6->right = p4;                 p5->right = p7;
+    n3->left = n2;n9->left = n8;
+    n3->right = n4; n9->right = n10;
 
-    p8->left = p10;                 p4->right = p2;
+    n2->left = n11;  n4->right = n5; 
 
-    p3->left = p1;                    p7->right = p9;
+    n8->left = n7;n10->right = n1; 
 
-    cout<<"Pre Order :\n";
-    preorder(root);
-
-    cout<<"\n\nPost Order :\n";
-    postorder(root);
-
-    cout<<"\n\nIn Order\n";
+    cout << "\n\nIn Order Traversal:\n";
     inorder(root);
+    cout << "\n\n";
+
+    prevNode = nullptr; 
+
+    if(isBST(root)){
+        cout << "Is BST\n";
+    }
+    else{
+        cout << "Not BST\n";
+    }
 
     return 0;
 }
