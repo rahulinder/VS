@@ -23,36 +23,49 @@ void inorder(tree* root){
 }
 
 tree* inOrderPred(tree* root){
-    root = root->left;
-    while(root->right != nullptr){
-        root = root->right;
+    tree* curr = root->left;// 1. Go to the left child once
+    while(curr->right != nullptr){// 2. Traverse all the way down the right
+        curr = curr->right;
     }
-    return root;
+    return curr;// 3. Return the rightmost node
 }
-
 
 tree* deleteNode(tree* root, int key){
     tree* iPre;
-    if(root == nullptr){// If Tree is empty
-        return 0;
+    // 1. If Tree is empty, root = NULL
+    if(root == nullptr){
+        return nullptr;
     }
-    if(root->left == nullptr && root->right == nullptr){//If node is a leaf node
-        delete(root);
-    }
-
-    //Search the node to be deleted
+    // 2. If Element is smaller than Node
     if(key < root->data){
-        deleteNode(root->left, key);
+        root->left = deleteNode(root->left, key);
     }
-    else if (key > root->data){
-        deleteNode(root->right, key);
+    // 3. If Element is greater than Node
+    else if(key > root->data){
+        root->right = deleteNode(root->right, key);
     }
-    //Deletion when node is found
     else{
-        iPre = inOrderPred(root);
-        root->data = iPre->data;
-        deleteNode(root->left, iPre->data);
+        // 4. If Left Node is a Leaf Node  
+        if(root->left == nullptr){
+            tree* temp = root->right;
+            delete root;
+            return temp;
+        }
+        // 5. If Right Node is a Leaf Node  
+        else if(root->right == nullptr){
+            tree* temp = root->left;
+            delete root;
+            return temp;
+        }
+        /* When the deleteNode function has successfully traversed the BST 
+        and found the node that matches the key to be deleted (i.e., when key == root->data). 
+        This specific block handles the complex case where the node to be deleted (root) 
+        has both a left child and a right child.*/
+        iPre = inOrderPred(root);// Finds the replacement node
+        root->data = iPre->data;// Value Replacement
+        root->left = deleteNode(root->left, iPre->data);//Removes the original IPre node
     }
+    return root;
 }
 
 int main(){
